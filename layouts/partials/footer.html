@@ -1,5 +1,5 @@
 <footer id="footer">
-    {{ if .Site.Social }}
+    {{ if .Site.Params.Social }}
         {{ partial "social.html" . }}
     {{ end }}
 
@@ -9,10 +9,10 @@
     {{ else }}
        © Copyright 
        {{ now.Format "2006"}} 
-       <span class="split">
+       <!--<span class="split">
         {{ partial "svgs/heart.svg" (dict "fill" "#bbbbbb" "width" 15 "height" 15 ) }}
-       </span>
-       {{ .Site.Params.Author }}
+       </span>-->
+       {{ .Site.Params.Author.name }}
     {{ end }}
     </div>
 
@@ -21,6 +21,7 @@
         {{ i18n "poweredBy" | safeHTML }}
       </div>
     {{ end }}
+    <p><a href="{{ "/license/" | relURL }}">License</a></p>
 </footer>
 
 {{ range .Site.Params.customJS }}
